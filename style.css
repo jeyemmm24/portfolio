@@ -662,12 +662,23 @@ footer {
   }
 }
 .myprof-img {
-  width: 500px;
-  height: 500px;
+  width: 90px;
+  height: 90px;
+  max-width: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: 50%;
   border: 2px solid #7cf0c8;
-  margin-bottom: 20px;
+  display: block;
+  margin: 0 auto 20px 0;
+}
+/* Responsive profile photo on mobile */
+@media screen and (max-width: 600px) {
+  .myprof-img {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 16px;
+  }
 }
 
 /* EDUCATION SECTION */
