@@ -662,9 +662,9 @@ footer {
   }
 }
 .myprof-img {
-  width: 90px;
-  height: 90px;
-  max-width: 100%;
+  width: 500px;
+  height: 500px;
+  max-width: 600%;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
@@ -675,8 +675,8 @@ footer {
 /* Responsive profile photo on mobile */
 @media screen and (max-width: 600px) {
   .myprof-img {
-    width: 75px;
-    height: 75px;
+    width: 200px;
+    height: 200px;
     margin: 0 auto 16px;
   }
 }
