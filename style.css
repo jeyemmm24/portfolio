@@ -661,23 +661,24 @@ footer {
     font-size: clamp(2.7rem, 13vw, 4rem);
   }
 }
+
 .myprof-img {
-  width: 500px;
-  height: 500px;
-  max-width: 600%;
+  width: 150px;
+  height: 150px;
+  max-width: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
   border: 2px solid #7cf0c8;
   display: block;
-  margin: 0 auto 20px 0;
+  margin: 0 0 20px;
 }
-/* Responsive profile photo on mobile */
-@media screen and (max-width: 600px) {
+
+@media (max-width: 600px) {
   .myprof-img {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 16px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 18px;
   }
 }
 
@@ -737,106 +738,78 @@ footer {
 }
 
 
-/* RESPONSIVE DESIGN FOR ALL SCREEN SIZES */
 
-/* Prevent unwanted horizontal scrolling */
-* {
+
+/* FIX: MAKE THE WEBSITE RESPONSIVE */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html,
+html {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+}
+
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
 }
 
-img {
+/* Make the main page sections use the full available width */
+.topbar,
+header,
+main,
+footer,
+section {
   max-width: 100%;
-  height: auto;
 }
 
-/* Navigation */
-.nav {
-  position: relative;
-  flex-wrap: wrap;
+/* Center content without making the page too narrow */
+.container {
+  width: calc(100% - 40px);
+  max-width: 1100px;
+  min-width: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.nav-links {
+/* Prevent grids and cards from forcing a wider page */
+.about-grid,
+.skills-grid,
+.projects-grid,
+.education-grid,
+.cert-list,
+.contact-grid,
+.field-row {
   min-width: 0;
 }
 
-.nav-links a {
-  overflow-wrap: anywhere;
-}
-
-/* Profile photo */
-.myprof-img {
-  width: clamp(80px, 18vw, 180px);
-  height: clamp(80px, 18vw, 180px);
-  max-width: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-  border: 2px solid #7cf0c8;
-  display: block;
-  margin: 0 0 20px;
-}
-
-/* Flexible project screenshots */
-.project-image {
-  display: block;
-  width: 100%;
-  height: clamp(150px, 25vw, 240px);
-  object-fit: cover;
-  object-position: center;
-  border-radius: 10px;
-}
-
-/* Make long text fit its containers */
-p,
-h1,
-h2,
-h3,
-a,
-span {
-  overflow-wrap: break-word;
-}
-
-input,
-textarea,
-button {
+.card,
+.project-card {
+  min-width: 0;
   max-width: 100%;
 }
 
-/* TABLETS AND SMALL LAPTOPS */
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* Tablets and phones */
 @media (max-width: 800px) {
   .container {
     width: calc(100% - 32px);
-  }
-
-  .nav {
-    gap: 12px;
-  }
-
-  .nav-links {
-    gap: 0;
-  }
-
-  .hero {
-    padding: 60px 0;
-  }
-
-  .section {
-    padding: 55px 0;
-  }
-
-  .section-head {
-    display: block;
-  }
-
-  .section-intro {
-    margin-top: 14px;
   }
 
   .about-grid,
@@ -849,178 +822,56 @@ button {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .projects-grid,
   .education-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .card {
-    min-width: 0;
-  }
 }
 
-/* MOBILE PHONES */
+/* Small mobile screens */
 @media (max-width: 600px) {
   .container {
     width: calc(100% - 28px);
   }
 
-  .nav {
-    min-height: 68px;
-    gap: 8px;
-  }
-
-  .brand {
-    font-size: 1rem;
-  }
-
-  .nav-toggle {
-    display: inline-block;
-  }
-
-  .nav-links {
-    left: 0;
-    right: 0;
-    top: 100%;
-    max-width: 100%;
-    max-height: 75vh;
-    overflow-y: auto;
-  }
-
-  .nav-links a {
-    padding: 12px;
+  .projects-grid,
+  .skills-grid,
+  .education-grid,
+  .cert-list,
+  .about-grid,
+  .contact-grid,
+  .field-row {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero {
-    padding: 48px 0;
+    width: 100%;
+    max-width: 100%;
   }
 
-  h1 {
-    font-size: clamp(2rem, 9vw, 3rem);
-    line-height: 1.15;
-  }
-
-  h2 {
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
-  }
-
-  .hero-copy {
-    font-size: 1rem;
+  .hero h1 {
+    font-size: clamp(30px, 8vw, 44px);
+    overflow-wrap: anywhere;
   }
 
   .myprof-img {
     width: 100px;
     height: 100px;
-    margin: 0 auto 18px;
+    max-width: 100%;
+    object-fit: cover;
   }
 
   .actions {
     flex-direction: column;
-    align-items: stretch;
   }
 
   .actions .btn {
     width: 100%;
   }
 
-  .hero-meta {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .section {
-    padding: 45px 0;
-  }
-
-  .about-grid,
-  .stats,
-  .skills-grid,
-  .cert-list,
-  .projects-grid,
-  .education-grid,
-  .contact-grid,
-  .field-row {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .card {
-    padding: 18px;
-  }
-
-  .project-card {
-    padding: 0;
-  }
-
-  .project-art {
-    min-height: 0;
-    padding: 12px;
-  }
-
   .project-image {
+    width: 100%;
     height: 190px;
-  }
-
-  .project-body {
-    padding: 18px;
-  }
-
-  .project-foot {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .project-links {
-    flex-wrap: wrap;
-  }
-
-  .cert {
-    min-width: 0;
-  }
-
-  .contact-link a {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-
-  .resume-card {
-    padding: 18px;
-  }
-
-  footer .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
+    object-fit: cover;
   }
 }
-
-/* VERY SMALL PHONES */
-@media (max-width: 360px) {
-  .container {
-    width: calc(100% - 20px);
-  }
-
-  .brand {
-    font-size: 0.9rem;
-  }
-
-  .nav-toggle {
-    padding: 7px 9px;
-    font-size: 0.85rem;
-  }
-
-  h1 {
-    font-size: 1.9rem;
-  }
-
-  .project-image {
-    height: 155px;
-  }
-
-  .tag {
-    font-size: 0.75rem;
-  }
-}
-
