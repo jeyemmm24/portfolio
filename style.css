@@ -875,3 +875,59 @@ iframe {
     object-fit: cover;
   }
 }
+
+/* FINAL RESPONSIVE FIX */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: clip;
+}
+
+.container {
+  width: calc(100% - 40px);
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.about-grid,
+.skills-grid,
+.projects-grid,
+.education-grid,
+.cert-list,
+.contact-grid,
+.field-row {
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .projects-grid,
+  .skills-grid,
+  .education-grid,
+  .cert-list,
+  .about-grid,
+  .contact-grid,
+  .field-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions .btn {
+    width: 100%;
+  }
+}
